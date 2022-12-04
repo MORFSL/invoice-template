@@ -1,67 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Invoice</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="scripts.js" defer="true"></script>
-  </head>
-  <body>
-    <header>
-      <div contenteditable="true">Header</div>
-      <h1>Invoice</h1>
-      <h3>Date</h3>
-      <h3>Invoice No: 0000</h3>
-      <h3>Project Details</h3>
-      <p>
-        Project Name: <span contenteditable="true">Web Development. (XXX)</span>
-      </p>
-      <address contenteditable="true">
-        <p>
-          No. 123 Acme Street
-          <br />
-          Acme City, AE 10101
-          <br />
-          Acme Street
-        </p>
-      </address>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Invoice</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="scripts.js" defer="true"></script>
+</head>
+
+<body>
+
+  <header>
+
+    <address>
       <span>
         <img src="logo.png" />
       </span>
-    </header>
+      <h3 contenteditable="true">MORFSL</h3>
+      <a href="mailto:Morfsl2021@gmail.com" contenteditable="true">Morfsl2021@gmail.com</a>
+      <p contenteditable="true">
+        26/1A, Station Road,<br />
+        Mount Lavinia
+      </p>
+    </address>
+
     <main>
-      <div contenteditable="true">
-        <table>
-          <tr>
-            <th>Company</th>
-            <th>Contact</th>
-            <th>Country</th>
-          </tr>
-          <tr>
-            <th>Company</th>
-            <th>Contact</th>
-            <th>Country</th>
-          </tr>
-          <tr>
-            <th>Company</th>
-            <th>Contact</th>
-            <th>Country</th>
-          </tr>
-          <tr>
-            <th>Company</th>
-            <th>Contact</th>
-            <th>Country</th>
-          </tr>
-          <tr>
-            <th>Company</th>
-            <th>Contact</th>
-            <th>Country</th>
-          </tr>
-        </table>
+      <h1>Invoice</h1>
+
+      <div class="content-block content-block--invoice">
+        <h3>INVOICE NUMBER</h3>
+        <p><strong>02324252352</strong></p>
+      </div>
+      <div class="content-block content-block--issue">
+        <h3>Issue Date</h3>
+        <p><strong>December 29, 2022</strong></p>
+      </div>
+      <div class="content-block content-block--client">
+        <h3>CLIENT</h3>
+        <p contenteditable="true"><strong>Robert Lemon</strong></p>
+        <p contenteditable="true">Web Development (RLE)</p>
       </div>
     </main>
-    <footer>
-      <div contenteditable="true">Footer</div>
-    </footer>
-  </body>
+
+  </header>
+
+  <main>
+  </main>
+
+  <footer>
+  </footer>
+
+</body>
+
 </html>

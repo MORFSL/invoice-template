@@ -1,4 +1,21 @@
+/* Variables */
+
+:root {
+  --bg-color: #f8f8fa;
+  --on-bg-color: #000000;
+  --surface-color: #1d1d1d;
+}
+
 /* Reset */
+
+header {
+  background-color: var(--bg-color);
+}
+
+body {
+  max-width: 750px;
+  margin: 0 auto;
+}
 
 * {
   border: 0;
@@ -46,7 +63,6 @@ span[contenteditable] {
 h1 {
   font: bold 100% sans-serif;
   letter-spacing: 0.5em;
-  text-align: center;
   text-transform: uppercase;
 }
 
