@@ -4,7 +4,11 @@
 <head>
   <meta charset="UTF-8" />
   <title>Invoice</title>
+
+  <!-- Load Styles -->
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Load Scripts -->
   <script src="scripts.js" defer="true"></script>
 </head>
 
@@ -13,42 +17,93 @@
   <header>
 
     <address>
-      <span>
+      <div class="content-block logo">
         <img src="logo.png" />
-      </span>
-      <h3 contenteditable="true">MORFSL</h3>
-      <a href="mailto:Morfsl2021@gmail.com" contenteditable="true">Morfsl2021@gmail.com</a>
-      <p contenteditable="true">
-        26/1A, Station Road,<br />
-        Mount Lavinia
-      </p>
+      </div>
+      <div class="content-block content">
+        <h3>MORFSL</h3>
+        <a href="mailto:Morfsl2021@gmail.com">Morfsl2021@gmail.com</a>
+        <p>
+          26/1A, Station Road,<br />
+          Mount Lavinia
+        </p>
+      </div>
     </address>
 
     <main>
       <h1>Invoice</h1>
 
-      <div class="content-block content-block--invoice">
+      <div class="content-block invoice">
         <h3>INVOICE NUMBER</h3>
-        <p><strong>02324252352</strong></p>
+        <p><strong id="invoiceNumber"></strong></p>
       </div>
-      <div class="content-block content-block--issue">
+      <div class="content-block issue">
         <h3>Issue Date</h3>
-        <p><strong>December 29, 2022</strong></p>
+        <p><strong id="invoiceDate"></strong></p>
       </div>
-      <div class="content-block content-block--client">
+      <div class="content-block client">
         <h3>CLIENT</h3>
-        <p contenteditable="true"><strong>Robert Lemon</strong></p>
-        <p contenteditable="true">Web Development (RLE)</p>
+        <p contenteditable><strong>Robert Lemon</strong></p>
+        <p contenteditable>Web Development (RLE)</p>
       </div>
     </main>
 
   </header>
 
   <main>
+    <table>
+      <thead>
+        <tr>
+          <th>Task Description</th>
+          <th>Hours</th>
+          <th>Rate Per Hour</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td contenteditable>The table body</td>
+          <td contenteditable>The table body</td>
+          <td contenteditable>The table body</td>
+          <td contenteditable>The table body</td>
+        </tr>
+      </tbody>
+    </table>
+    <a class="add">+</a>
   </main>
 
   <footer>
+    <div class="balance">
+      <div class="row">
+
+        <div class="balance-block subtotal">
+          <h3>Subtotal</h3>
+          <p>LKR 25,000</p>
+        </div>
+
+        <div class="balance-block taxes">
+          <h3>Taxes/Fees</h3>
+          <p>LKR 25,000</p>
+        </div>
+
+      </div>
+
+      <div class="balance surface row">
+        <div class="total sum">
+          <div class="balance-block sum">
+            <h3>Taxes/Fees</h3>
+            <p>LKR 25,000</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
   </footer>
+
+  <!-- Load Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/short-unique-id@latest/dist/short-unique-id.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 
 </body>
 
