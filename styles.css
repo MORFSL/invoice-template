@@ -1,8 +1,8 @@
-/* Fonts */
+/* -- Import Fonts -- */
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
-/* Variables */
+/* -- Define Variables -- */
 
 :root {
   --bg-color: #f8f8fa;
@@ -12,7 +12,7 @@
   --primary-neutral-color: #595959;
 }
 
-/* Reset */
+/* -- Resets -- */
 
 * {
   border: 0;
@@ -54,7 +54,7 @@ span[contenteditable] {
   display: inline-block;
 }
 
-/* Layout */
+/* Layout Styles */
 
 header {
   background-color: var(--bg-color);
@@ -68,15 +68,13 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-footer {
-  margin-top: 100px;
-}
+/* Utility Styles */
 
-footer .balance {
+.row {
   display: flex;
 }
 
-/* Company */
+/* Company Styles */
 
 header address {
   display: flex;
@@ -118,6 +116,8 @@ header main .issue {
 
 header main .client {
 }
+
+/* Common Styles */
 
 .content-block h3 {
   font-style: normal;
@@ -175,25 +175,86 @@ td {
   position: relative;
 }
 
+/* -- Footer Styles  -- */
+
+/* Common classes */
+
+footer .balance-block h3 {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--primary-neutral-color);
+  text-transform: uppercase;
+}
+
+footer .balance-block p {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 18px;
+  margin-top: 5px;
+}
+
+/* Specific styles */
+
+footer .balance {
+  margin-top: 100px;
+}
+
+footer .subtotals {
+  flex: 1;
+  background-color: var(--bg-color);
+}
+
+footer .balance .spacer {
+  font-weight: 300;
+  font-size: 34px;
+  margin: 0 40px;
+}
+
+footer :is(.total, .subtotals) {
+  padding: 15px 30px;
+}
+
+footer .total {
+  justify-content: right;
+  background-color: var(--surface-color);
+  color: var(--on-surface-color);
+  text-align: right;
+  flex: 1;
+}
+
+footer .total h3 {
+  color: #d6d4d4;
+}
+
+footer .notes {
+  margin-top: 20px;
+  font-weight: 300;
+  font-size: 14px;
+}
+
 /* Print */
 
 @media print {
   * {
     -webkit-print-color-adjust: exact;
   }
+
   html {
     background: none;
     padding: 0;
     margin: 0;
   }
+
   body {
     box-shadow: none;
     margin: 0;
     padding: 0;
   }
+
   span:empty {
     display: none;
   }
+
   .add,
   .cut {
     display: none;
