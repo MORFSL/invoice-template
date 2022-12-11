@@ -4,7 +4,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Invoice</title>
+  <title id="headInvoiceNumber">Invoice For </title>
 
   <!-- Load Styles -->
   <link rel="stylesheet" href="styles.css" />
@@ -41,23 +41,29 @@
 
       <div class="content-block invoice">
         <h3>INVOICE NUMBER</h3>
-        <p><strong id="invoiceNumber"></strong></p>
+        <strong>
+          <p id="invoiceNumber"></p>
+        </strong>
       </div>
       <div class="content-block issue">
         <h3>Issue Date</h3>
-        <p><strong id="invoiceDate"></strong></p>
+        <strong>
+          <p id="invoiceDate"></p>
+        </strong>
       </div>
       <div class="content-block client">
         <h3>CLIENT</h3>
-        <p contenteditable><strong>Robert Lemon</strong></p>
-        <p contenteditable>Web Development (RLE)</p>
+        <strong>
+          <p contenteditable id="clientName">Robert Lemon</p>
+        </strong>
+        <p contenteditable id="clientProject">Web Development (RLE)</p>
       </div>
     </main>
 
   </header>
 
   <main>
-    <table>
+    <table id="priceTable">
       <thead>
         <tr>
           <th>Task Description</th>
@@ -68,10 +74,10 @@
       </thead>
       <tbody>
         <tr>
-          <td contenteditable>The table body</td>
-          <td contenteditable>The table body</td>
-          <td contenteditable>The table body</td>
-          <td contenteditable>The table body</td>
+          <td contenteditable>Wireframes</td>
+          <td contenteditable id="rowHours">5</td>
+          <td contenteditable id="rowRatePerHour">1000</td>
+          <td contenteditable id="rowTotal">4000</td>
         </tr>
       </tbody>
     </table>
@@ -83,14 +89,14 @@
       <div class="subtotals row">
         <div class="balance-block">
           <h3>Subtotal</h3>
-          <p>LKR 25,000</p>
+          <p contenteditable id="subtotal">LKR 000</p>
         </div>
 
         <div class="spacer">+</div>
 
         <div class="balance-block">
           <h3>Taxes/Fees</h3>
-          <p>LKR 25,000</p>
+          <p contenteditable>LKR 000</p>
         </div>
       </div>
 
@@ -98,7 +104,7 @@
         <div class="balance-block">
           <div class="balance-block sum">
             <h3>Taxes/Fees</h3>
-            <p>LKR 25,000</p>
+            <p contenteditable>LKR 000</p>
           </div>
         </div>
       </div>

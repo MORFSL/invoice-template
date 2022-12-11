@@ -62,6 +62,17 @@ class Init {
 		this.onContentLoad();
 		this.mutateDomElement('#invoiceNumber', this.generateInvoiceId(prefix));
 		this.mutateDomElement('#invoiceDate', moment().format('MMMM Do, YYYY'));
+
+		/**  Update fileanme when saving for print */
+		window.onbeforeprint = () => {
+			this.mutateDomElement('#headInvoiceNumber', this.getDomElementData('#clientName'), false);
+			this.mutateDomElement('#headInvoiceNumber', ' - ', false);
+			this.mutateDomElement('#headInvoiceNumber', this.getDomElementData('#clientProject'), false);
+			this.mutateDomElement('#headInvoiceNumber', ' - ', false);
+			this.mutateDomElement('#headInvoiceNumber', this.getDomElementData('#invoiceDate'), false);
+		}
+
+		this.updateSubTotal();
 	}
 
 	/**
@@ -95,27 +106,47 @@ class Init {
 	 * 
 	 * @param	{string}	htmlElementSelector	html element selector
 	 * @param	{string}	textContent	text string to append
+	 * @param	{boolean}	mutate	append or mutate
 	 * 
-	 * @return void
+	 * @return {void}
 	 */
-	mutateDomElement = (htmlElementSelector, textContent) => {
+	mutateDomElement = (htmlElementSelector, textContent, mutate = true) => {
 		let element = document.querySelector(htmlElementSelector);
 
-		element.innerHTML += textContent;
+		if (mutate) {
+			element.innerHTML = textContent;
+		} else {
+			element.innerHTML += textContent;
+		}
 	}
 
-	// UNSTABLE CODE
+	/**
+	 * Get DOM element data with selector.
+	 * 
+	 * @param	{string}	htmlElementSelector	html element selector
+	 * @return {any}
+	 */
+	getDomElementData = (htmlElementSelector) => {
+		return document.querySelector(htmlElementSelector).innerHTML;
+	}
+
+	/**
+	 * Create new table row.
+	 */
 	generateTableRow = () => {
 		let newColumn = document.createElement('tr');
 
-		newColumn.innerHTML = '<td><a class="cut">-</a><span contenteditable></span></td>' +
-			'<td><span contenteditable></span></td>' +
-			'<td><span contenteditable>0.00</span></td>' +
-			'<td><span>0.00</span></td>';
+		newColumn.innerHTML = '<td><a class="cut">-</a><div contenteditable></div></td>' +
+			'<td contenteditable>0</td>' +
+			'<td contenteditable>0</td>' +
+			'<td contenteditable>0</td>';
 
 		return newColumn;
 	}
 
+	/**
+	 * On content load hook.
+	 */
 	onContentLoad = () => {
 		const onClick = (e) => {
 			let element = e.target.querySelector('[contenteditable]');
@@ -130,12 +161,76 @@ class Init {
 
 				row.parentNode.removeChild(row);
 			}
+			this.updateSubTotal();
 		}
 
 		if (window.addEventListener) {
 			document.addEventListener('click', onClick);
 		}
 	}
+
+	/**
+	 * Update sub total by calculating.
+	 */
+	updateSubTotal() {
+		const table = document.getElementById("priceTable");
+
+		/**
+		 * TODO: 
+		 * [x] get hours function
+		 * [x] get rate function
+		 * [] calculate total function
+		 */
+
+		/**
+		 * Get row column inner HTML by index. 
+		 * 
+		 * @param {integer} columnIndex 
+		 * @returns {string[]}
+		 */
+		const getRowColumn = (columnIndex) => {
+			return Array.from(table.rows).slice(1).map((row) => {
+				return row.cells[columnIndex].innerHTML
+			})
+		};
+
+		/**
+		 * Get Hours 
+		 * 
+		 * @returns string[]
+		 */
+		const getHours = () => getRowColumn(1);
+
+		/**
+		 * Get Rate
+		 * 
+		 * @returns string[]
+		 */
+		const getRate = () => getRowColumn(2);
+
+		let rowTotal = Array.from(table.rows).slice(1).reduce((total, row) => {
+			return total + parseFloat(row.cells[1].innerHTML * row.cells[2].innerHTML);
+		}, 0);
+
+		let subTotal = Array.from(table.rows).slice(1).reduce((total, row) => {
+			return total + parseFloat(row.cells[3].innerHTML);
+		}, 0);
+
+		/** Update data
+		this.mutateDomElement("#rowTotal", rowTotal.toFixed(2));
+		this.mutateDomElement("#subtotal", subTotal.toFixed(2));
+ 		*/
+	}
+
+	/**
+	 * Update total by calculating.
+	 */
+	updateTotal() {}
+
+	/**
+	 * Calculate hourly rate.
+	 */
+	calculateHourlyRate() {}
 }
 
 /** Initiate class instance */
