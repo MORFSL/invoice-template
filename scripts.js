@@ -136,10 +136,16 @@ class Init {
 	generateTableRow = () => {
 		let newColumn = document.createElement('tr');
 
-		newColumn.innerHTML = '<td><a class="cut">-</a><div contenteditable></div></td>' +
-			'<td contenteditable>0</td>' +
-			'<td contenteditable>0</td>' +
-			'<td contenteditable>0</td>';
+		newColumn.innerHTML = '<td>' +
+			'<a class="cut">-</a>' +
+			'<div contenteditable>' +
+			'<h3>Task Description</h3>' +
+			'<p>This is the breakdown where we can provide more information.</p>' +
+			'</div>' +
+			'</td>' +
+			'<td class="number" id="rowHours" contenteditable>00</td>' +
+			'<td class="number" id="rowRatePerHour" contenteditable>LKR 0000</td>' +
+			'<td class="number" id="rowTotal" contenteditable>LKR 0000</td>';
 
 		return newColumn;
 	}

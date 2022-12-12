@@ -1,6 +1,7 @@
 /* -- Import Fonts -- */
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 
 /* -- Define Variables -- */
 
@@ -9,6 +10,7 @@
   --surface-color: #1d1d1d;
   --on-surface-color: #ffffff;
   --primary-neutral-color: #595959;
+  --font-monospaced: "Roboto Mono", monospace;
 }
 
 /* -- Resets -- */
@@ -46,7 +48,7 @@
 td:hover *[contenteditable],
 td:focus *[contenteditable],
 img.hover {
-  box-shadow: 0 0 0.5em 0.1em #000;
+  background-color: hsla(0, 0%, 60%, 0.3);
 }
 
 span[contenteditable] {
@@ -158,13 +160,66 @@ table {
 }
 
 table {
-  border-collapse: separate;
+  border-collapse: collapse;
 }
 
-table thead tr {
+table thead {
   background-color: var(--surface-color);
   color: var(--on-surface-color);
+  text-align: left;
 }
+
+table thead tr th {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 12px;
+  padding: 10px 0;
+}
+
+table thead tr th:is(:first-child),
+table tbody tr td:is(:first-child) {
+  padding-right: 30px;
+  padding-left: 30px;
+  width: 260px;
+}
+
+table thead tr th:is(:last-child),
+table tbody tr td:is(:last-child) {
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+table thead tr th:is(:last-child),
+table tbody tr td:is(:last-child) {
+  text-align: right;
+}
+
+table tbody tr td {
+  vertical-align: middle;
+}
+
+table tbody tr td :is(h3) {
+  margin-top: 20px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 14px;
+}
+
+table tbody tr td :is(p) {
+  margin: 6px 0 20px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 120%;
+}
+
+table tbody tr :is(.number) {
+  font-family: var(--font-monospaced);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 13px;
+}
+
 td {
   border-color: #ddd;
 }
