@@ -65,6 +65,7 @@ class Init {
 
 		/**  Update fileanme when saving for print */
 		window.onbeforeprint = () => {
+			this.mutateDomElement('#headInvoiceNumber', 'Invoice For ', true);
 			this.mutateDomElement('#headInvoiceNumber', this.getDomElementData('#clientName'), false);
 			this.mutateDomElement('#headInvoiceNumber', ' - ', false);
 			this.mutateDomElement('#headInvoiceNumber', this.getDomElementData('#clientProject'), false);
@@ -138,10 +139,8 @@ class Init {
 
 		newColumn.innerHTML = '<td>' +
 			'<a class="cut">-</a>' +
-			'<div contenteditable>' +
-			'<h3>Task Description</h3>' +
-			'<p>This is the breakdown where we can provide more information.</p>' +
-			'</div>' +
+			'<h3 contenteditable>1. Task Description</h3>' +
+			'<p contenteditable>This is the breakdown where we can provide more information.</p>' +
 			'</td>' +
 			'<td class="number" id="rowHours" contenteditable>00</td>' +
 			'<td class="number" id="rowRatePerHour" contenteditable>LKR 0000</td>' +

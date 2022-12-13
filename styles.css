@@ -60,13 +60,20 @@ span[contenteditable] {
 header {
   background-color: var(--bg-color);
   display: flex;
-  padding: 30px;
+  padding: 30px 30px 50px 30px;
 }
 
 body {
+  min-height: 900px;
   max-width: 800px;
   margin: 0 auto;
   font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-top: auto;
 }
 
 /* Utility Styles */
@@ -97,7 +104,7 @@ header address .content :is(img) {
 /* Main */
 
 header main {
-  margin-left: 120px;
+  margin-left: 226px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -199,17 +206,18 @@ table tbody tr td {
 }
 
 table tbody tr td :is(h3) {
-  margin-top: 20px;
-  font-weight: 600;
-  font-size: 16px;
+  margin-top: 36px;
+  font-weight: 700;
+  font-size: 18px;
   line-height: 14px;
 }
 
 table tbody tr td :is(p) {
-  margin: 6px 0 20px;
+  margin: 10px 0 36px;
   font-weight: 400;
-  font-size: 12px;
-  line-height: 120%;
+  font-size: 14px;
+  line-height: 18px;
+  max-width: 240px;
 }
 
 table tbody tr :is(.number) {
@@ -218,6 +226,10 @@ table tbody tr :is(.number) {
   font-weight: 400;
   font-size: 16px;
   line-height: 13px;
+}
+
+table tbody tr {
+  border-bottom: 1px solid hsla(0, 0%, 80%, 0.5);
 }
 
 td {
@@ -261,7 +273,7 @@ footer .subtotals {
 footer .balance .spacer {
   font-weight: 300;
   font-size: 34px;
-  margin: 0 40px;
+  margin: 0 60px 0 60px;
 }
 
 footer :is(.total, .subtotals) {
@@ -295,6 +307,7 @@ footer .notes {
 
   body {
     box-shadow: none !important;
+    min-height: 1100px;
   }
 
   span:empty {
