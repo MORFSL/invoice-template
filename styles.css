@@ -215,9 +215,10 @@ table tbody tr td :is(h3) {
 table tbody tr td :is(p) {
   margin: 10px 0 36px;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 18px;
   max-width: 240px;
+  padding-left: 2px;
 }
 
 table tbody tr :is(.number) {
@@ -262,7 +263,11 @@ footer .balance-block p {
 /* Specific styles */
 
 footer .balance {
-  margin-top: 100px;
+  margin-top: 80px;
+}
+
+footer .balance :is(p) {
+  font-family: var(--font-monospaced);
 }
 
 footer .subtotals {
@@ -293,9 +298,10 @@ footer .total h3 {
 }
 
 footer .notes {
-  font-weight: 300;
-  font-size: 14px;
+  font-weight: 400;
+  font-size: 12px;
   margin: 20px 30px;
+  line-height: 130%;
 }
 
 /* Print */
