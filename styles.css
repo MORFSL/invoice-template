@@ -158,6 +158,14 @@ header main .client {
   line-height: 14px;
 }
 
+.number:is(.inactive) {
+  color: grey;
+}
+
+td .number:not(.inactive) {
+  color: initial;
+}
+
 /* Table */
 
 table {
@@ -173,7 +181,6 @@ table {
 table thead {
   background-color: var(--surface-color);
   color: var(--on-surface-color);
-  text-align: left;
 }
 
 table thead tr th {
@@ -185,9 +192,9 @@ table thead tr th {
 
 table thead tr th:is(:first-child),
 table tbody tr td:is(:first-child) {
-  padding-right: 30px;
   padding-left: 30px;
   width: 260px;
+  text-align: left;
 }
 
 table thead tr th:is(:last-child),
@@ -196,8 +203,8 @@ table tbody tr td:is(:last-child) {
   padding-left: 30px;
 }
 
-table thead tr th:is(:last-child),
-table tbody tr td:is(:last-child) {
+table thead tr th:is(.number),
+table tbody tr td:is(.number) {
   text-align: right;
 }
 
@@ -246,6 +253,10 @@ td {
 
 /* Common classes */
 
+footer .balance-block {
+  min-width: 100px;
+}
+
 footer .balance-block h3 {
   font-weight: 700;
   font-size: 14px;
@@ -264,6 +275,7 @@ footer .balance-block p {
 
 footer .balance {
   margin-top: 80px;
+  width: 100%;
 }
 
 footer .balance :is(p) {
@@ -271,14 +283,14 @@ footer .balance :is(p) {
 }
 
 footer .subtotals {
-  flex: 1;
+  width: 60%;
   background-color: var(--bg-color);
 }
 
 footer .balance .spacer {
   font-weight: 300;
   font-size: 34px;
-  margin: 0 60px 0 60px;
+  margin: 0 70px 0 60px;
 }
 
 footer :is(.total, .subtotals) {
@@ -290,7 +302,7 @@ footer .total {
   background-color: var(--surface-color);
   color: var(--on-surface-color);
   text-align: right;
-  flex: 1;
+  width: 40%;
 }
 
 footer .total h3 {

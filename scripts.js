@@ -74,6 +74,7 @@ class Init {
 		}
 
 		this.updateSubTotal();
+		this.handleInactiveStyles();
 	}
 
 	/**
@@ -142,9 +143,9 @@ class Init {
 			'<h3 contenteditable>1. Task Description</h3>' +
 			'<p contenteditable>This is the breakdown where we can provide more information.</p>' +
 			'</td>' +
-			'<td class="number" id="rowHours" contenteditable>00</td>' +
-			'<td class="number" id="rowRatePerHour" contenteditable>LKR 0000</td>' +
-			'<td class="number" id="rowTotal" contenteditable>LKR 0000</td>';
+			'<td contenteditable class="number inactive" id="rowHours">00</td>' +
+			'<td contenteditable class="number inactive" id="rowRatePerHour">LKR 0000</td>' +
+			'<td contenteditable class="number" id="rowTotal">LKR 0000</td>';
 
 		return newColumn;
 	}
@@ -166,7 +167,10 @@ class Init {
 
 				row.parentNode.removeChild(row);
 			}
+
+			// Reinitialize scripts on row create
 			this.updateSubTotal();
+			this.handleInactiveStyles();
 		}
 
 		if (window.addEventListener) {
@@ -225,6 +229,15 @@ class Init {
 		this.mutateDomElement("#rowTotal", rowTotal.toFixed(2));
 		this.mutateDomElement("#subtotal", subTotal.toFixed(2));
  		*/
+	}
+
+	handleInactiveStyles() {
+		let elems = document.querySelectorAll('.inactive');
+		elems.forEach(elem => {
+			elem.addEventListener('click', () => {
+				elem.classList.toggle('inactive');
+			})
+		})
 	}
 
 	/**
