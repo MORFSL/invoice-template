@@ -89,8 +89,13 @@ header address {
   flex-direction: column;
   justify-content: space-between;
 }
+
 header address .logo {
   max-width: 225px;
+}
+
+header address .logo img {
+  width: 100%;
 }
 
 header address .content {
