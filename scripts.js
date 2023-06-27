@@ -143,8 +143,8 @@ class Init {
 			'<h3 contenteditable>1. Task Description</h3>' +
 			'<p contenteditable>This is the breakdown where we can provide more information.</p>' +
 			'</td>' +
-			'<td contenteditable class="number inactive" id="rowHours">00</td>' +
-			'<td contenteditable class="number inactive" id="rowRatePerHour">LKR 0000</td>' +
+			'<td contenteditable class="number inactive" id="rowHours">--</td>' +
+			'<td contenteditable class="number inactive" id="rowRatePerHour">---</td>' +
 			'<td contenteditable class="number" id="rowTotal">LKR 0000</td>';
 
 		return newColumn;
